@@ -1,16 +1,20 @@
 {
   "resources": [
+    {"id":{"name":"obj_menu","path":"objects/obj_menu/obj_menu.yy",},"order":2,},
     {"id":{"name":"obj_title_d","path":"objects/obj_title_d/obj_title_d.yy",},"order":0,},
     {"id":{"name":"obj_title_text","path":"objects/obj_title_text/obj_title_text.yy",},"order":1,},
     {"id":{"name":"spr_title_d_shine","path":"sprites/spr_title_d_shine/spr_title_d_shine.yy",},"order":3,},
     {"id":{"name":"spr_title_start","path":"sprites/spr_title_start/spr_title_start.yy",},"order":2,},
     {"id":{"name":"fnt_main","path":"fonts/fnt_main/fnt_main.yy",},"order":0,},
+    {"id":{"name":"obj_menubutton","path":"objects/obj_menubutton/obj_menubutton.yy",},"order":3,},
     {"id":{"name":"obj_title_start","path":"objects/obj_title_start/obj_title_start.yy",},"order":2,},
     {"id":{"name":"spr_title_text","path":"sprites/spr_title_text/spr_title_text.yy",},"order":1,},
+    {"id":{"name":"spr_menubutton_big","path":"sprites/spr_menubutton_big/spr_menubutton_big.yy",},"order":2,},
     {"id":{"name":"fnt_main_bold","path":"fonts/fnt_main_bold/fnt_main_bold.yy",},"order":1,},
+    {"id":{"name":"spr_menubutton","path":"sprites/spr_menubutton/spr_menubutton.yy",},"order":3,},
     {"id":{"name":"spr_title_d","path":"sprites/spr_title_d/spr_title_d.yy",},"order":0,},
     {"id":{"name":"tln_title","path":"timelines/tln_title/tln_title.yy",},"order":0,},
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
+    {"id":{"name":"rm_title","path":"rooms/rm_title/rm_title.yy",},"order":0,},
   ],
   "Options": [
     {"name":"HTML5","path":"options/html5/options_html5.yy",},
@@ -27,7 +31,7 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"rm_title","path":"rooms/rm_title/rm_title.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
