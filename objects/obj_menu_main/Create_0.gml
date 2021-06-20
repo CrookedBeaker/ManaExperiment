@@ -43,10 +43,10 @@ function Select() {
 			
 			switch index {
 				case 0: //Main
-					show_debug_message("Not made yet lol");
+					room_goto(rm_party_pc);
 					break;
 				case 1: //NPCs
-					show_debug_message("Not made yet lol");
+					room_goto(rm_party_npc);
 					break;
 				case 2: //Back
 					instance_destroy();
