@@ -1,7 +1,10 @@
 /// @description Select de bitch
 
-if (par = noone) {
+if (menuID = -1) {SetMenu(0)};
 
+if (sub = noone) {
+
+//Scroll
 if keyboard_check_pressed(vk_down) {
 	index++;
 	
@@ -12,6 +15,11 @@ if keyboard_check_pressed(vk_up) {
 	index--;
 	
 	if (index < 0) {index = array_length(buttons)-1};
+}
+
+//Select
+if keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(vk_enter) {
+	Select();
 }
 
 }

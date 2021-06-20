@@ -12,4 +12,36 @@ function MakeMenu(labelArray,menuID,big) { //Generate a menu
 	id.menuID = menuID;
 }
 
-MakeMenu(["Sample","Sample","Sample"],0,false); //Test
+function MakeSubMenu(menuID) { //Generate a sub-menu
+	sub = instance_create_depth(x+16,y,depth-1,object_index);
+	sub.par = id;
+	
+	with sub {
+		SetMenu(menuID);
+	}
+}
+
+function SetMenu(menuID) {
+	var l = [];
+	
+	switch menuID {
+		case 0:
+			var l = ["Sample","Sample","Sample"];
+	}
+	
+	MakeMenu(l,menuID,false);
+	//Overwrite this function to add menu builds
+}
+
+function Select() {
+	switch menuID {
+		default:
+			switch index {
+				default:
+					show_debug_message("Selected an option.");
+			}
+	}
+	//Overwrite this function to add functionality
+}
+
+//MakeMenu(["Sample","Sample","Sample"],0,false); //Test

@@ -1,0 +1,1 @@
+obj_title_text.image_alpha -= 0.2;
