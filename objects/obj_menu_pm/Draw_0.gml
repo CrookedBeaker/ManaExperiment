@@ -1,5 +1,7 @@
 /// @description Draw all the party members and whatnot
 
+if !instance_exists(obj_menu_pm_view) {
+
 var j = clamp(array_length(list)-(index-index%6),
 	0,
 	6); //Only have 6 appear at a time, depends on where you are on the list.
@@ -56,7 +58,9 @@ for (var i = 0; i < j; i++) {
 if (index-index%6) != 0 {draw_sprite(spr_party_arrow,0,128,40)};
 if (array_length(list)-(index-index%6) > 6) {draw_sprite(spr_party_arrow,1,128,240)};
 
+draw_self();
+
+}
+
 //Draw the header
 draw_sprite(spr_party_header,(room != rm_party_pc),128,16);
-
-draw_self();
