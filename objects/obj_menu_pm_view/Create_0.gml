@@ -10,6 +10,9 @@ function SetMenu(menuID) {
 	switch menuID {
 		case 0:
 			var l = (character.ss != 0) ? ["Equipment","Magic","Back"] : ["Equipment","Back"];
+			break;
+		case 1:
+			var l = ["Back"];
 	}
 	
 	MakeMenu(l,menuID,false);
@@ -33,6 +36,9 @@ function Select() {
 				case 2: //Back
 					instance_destroy();
 			}
+			break;
+		case 1: //Equipment
+			SetMenu(0);
 	}
 	//Overwrite this function to add functionality
 }

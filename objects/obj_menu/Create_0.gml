@@ -1,6 +1,11 @@
 /// @description Set up some stuff
 
 function MakeMenu(labelArray,menuID,big) { //Generate a menu
+	//Remove existing buttons
+	for (var i=0; i<array_length(buttons); i++) {
+		instance_destroy(buttons[i])
+	}
+	buttons = [];
 	
 	for (var i=0; i<array_length(labelArray); i++) { //Make each button and put it in an array
 		buttons[i] = instance_create_depth(x,y-16-16*i,depth,obj_menubutton);

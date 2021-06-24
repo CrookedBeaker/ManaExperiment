@@ -18,7 +18,7 @@ for (var i = 0; i < j; i++) {
 	draw_set_font(fnt_main_bold);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
-	draw_set_color(c_orange);
+	draw_set_color(make_color_rgb(200,145,62));
 	
 	draw_text( //Name
 		(i%2)*128+52,
@@ -26,7 +26,7 @@ for (var i = 0; i < j; i++) {
 		current.name
 	);
 	
-	draw_set_color(c_maroon);
+	draw_set_color(make_color_rgb(222,124,112));
 	
 	draw_text( //Class
 		(i%2)*128+52,
@@ -34,7 +34,7 @@ for (var i = 0; i < j; i++) {
 		current.class
 	);
 	
-	draw_set_color(c_red);
+	draw_set_color(make_color_rgb(130,46,36));
 	
 	draw_text( //HP
 		(i%2)*128+52,
@@ -42,13 +42,13 @@ for (var i = 0; i < j; i++) {
 		"HP: "+string(current.hp)
 	);
 	
-	draw_set_color(c_blue);
+	draw_set_color(make_color_rgb(56,55,188));
 	
-	if (current.ss != 0) {
+	if (totalSS(current) != 0) {
 		draw_text( //SS
 			(i%2)*128+52,
 			floor((i%6)/2)*64+84,
-			"SS: "+string(current.ss)
+			"SS: "+string(totalSS(current))
 		);
 	}
 	
