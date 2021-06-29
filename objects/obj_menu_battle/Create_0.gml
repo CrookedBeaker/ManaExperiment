@@ -1,4 +1,4 @@
-/// @description Be the main menu
+/// @description Take your turn, adventurer!
 
 // Inherit the parent event
 event_inherited();
@@ -9,13 +9,13 @@ function SetMenu(menuID) {
 	
 	switch menuID {
 		case 0: //Main
-			var l = ["Party","Battle","Quit"];
+			var l = ["Move","Action","Bonus Ac.","End Turn"];
 			break;
-		case 1: //Sub - Party
-			var l = ["Players","NPCs","Back"];
+		case 1: //Sub - Action
+			var l = ["Attack","Dash","Disengage","Dodge","Spells","Back"];
 			break;
-		case 2: //Sub - Battle
-			var l = ["Test","Back"];
+		case 2: //Sub - Bonus Action
+			var l = ["Back"];
 			break;
 	}
 	
@@ -27,27 +27,38 @@ function Select() {
 		case 0: //Main
 			
 			switch index {
-				case 0: //Party
+				case 0: //Move
+					par.Move();
+					instance_destroy();
+					break;
+				case 1: //Action
 					MakeSubMenu(1);
 					break;
-				case 1: //Party
+				case 2: //Bonus Action
 					MakeSubMenu(2);
 					break;
-				case 2: //Quit
-					game_end();
 			}
 			break;
 		
 		case 1: //Sub - Party
 			
 			switch index {
-				case 0: //Main
-					room_goto(rm_party_pc);
+				case 0: //Attack
+					
 					break;
-				case 1: //NPCs
-					room_goto(rm_party_npc);
+				case 1: //Dash
+					
 					break;
-				case 2: //Back
+				case 2: //Disengage
+					
+					break;
+				case 3: //Dodge
+					
+					break;
+				case 4: //Spells
+					
+					break;
+				case 5: //Back
 					instance_destroy();
 			}
 			break;
@@ -55,10 +66,7 @@ function Select() {
 		case 2: //Sub - Battle
 			
 			switch index {
-				case 0: //Test
-					room_goto(rm_battle);
-					break;
-				case 1: //Back
+				case 0: //Back
 					instance_destroy();
 			}
 			break;
