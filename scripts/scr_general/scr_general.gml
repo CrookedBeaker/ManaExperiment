@@ -7,11 +7,17 @@ function Init() {
 			class : "Fighter",
 			hp : 35,
 			ss : [3],
+			ac : 16,
+			
 			spr : 0,
 			desc : "Heir to the Sprinklton throne sought\nby a rival assassin clan, he seeks\nvengeance and the truth for the death\nof his family.",
+			
 			weap : "Gauntlet",
+			atk: 5,
+			dmg: 3,
+			
 			spellsA : [["Acid Splash"],
-				["Silent Im.","False Life","Magic Mis."]],
+				["Silent Im.","False Life"]],
 			spellsBA : [["None"],
 				["None"]]
 		},
@@ -64,9 +70,15 @@ function Init() {
 			class : "Artificer",
 			hp : 27,
 			ss : [3],
+			ac : 16,
+			
 			spr : 5,
 			desc : "A witty and charming craftsman who\nstrives to rid himself of his past\ndeeds as he develops his skills.",
+			
 			weap : "Crossbow",
+			atk: 5,
+			dmg: 3,
+			
 			spellsA : [["Fire Bolt"],
 				["Cure Wounds","Faerie Fire","Grease","Ray of Sick."]],
 			spellsBA : [["None"],

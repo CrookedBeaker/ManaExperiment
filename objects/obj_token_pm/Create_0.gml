@@ -9,6 +9,9 @@ function SetStuff(character) {
 SetStuff(character);
 
 function TakeTurn() {
+	obj_ret.follow = id;
+	obj_ret.controlled = false;
+	
 	sub = instance_create_depth(obj_camera.x-112,obj_camera.y+112,-1,obj_menu_battle);
 	sub.par = id;
 	
@@ -18,6 +21,13 @@ function TakeTurn() {
 }
 
 function Move() {
-	moving = true;
+	actionTaking = 0;
 	moveOrigin = [x,y];
+}
+
+function Attack() {
+	actionTaking = 1;
+	
+	obj_ret.follow = noone;
+	obj_ret.controlled = true;
 }

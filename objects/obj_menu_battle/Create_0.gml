@@ -28,23 +28,35 @@ function Select() {
 			
 			switch index {
 				case 0: //Move
-					par.Move();
-					instance_destroy();
+					if (par.movedTurn < par.move) {
+						par.Move();
+						instance_destroy();
+					}
 					break;
 				case 1: //Action
-					MakeSubMenu(1);
+					if par.action {MakeSubMenu(1)};
 					break;
 				case 2: //Bonus Action
-					MakeSubMenu(2);
+					if par.baction {MakeSubMenu(2)};
 					break;
+				case 3: //End turn.
+					par.movedTurn = 0;
+					par.action = true;
+					par.baction = true;
+					instance_destroy();
+					with obj_dm {
+						NextTurn();
+					}
 			}
 			break;
 		
-		case 1: //Sub - Party
+		case 1: //Sub - Action
 			
 			switch index {
 				case 0: //Attack
-					
+					par.par.Attack();
+					instance_destroy();
+					instance_destroy(par);
 					break;
 				case 1: //Dash
 					
@@ -63,7 +75,7 @@ function Select() {
 			}
 			break;
 			
-		case 2: //Sub - Battle
+		case 2: //Sub - Bonus Action
 			
 			switch index {
 				case 0: //Back
