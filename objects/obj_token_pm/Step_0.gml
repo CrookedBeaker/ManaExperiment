@@ -8,19 +8,21 @@ case 0: //Moving!
 	obj_ret.x = -16;
 	obj_ret.y = -16;
 	
-	if keyboard_check_pressed(vk_left) && (moved < move || moveOrigin[0] < x) && !place_meeting(x-16,y,obj_solid) {
+	var tMove = (spAction = 1) ? move*2 : move;
+	
+	if keyboard_check_pressed(vk_left) && (moved < tMove || moveOrigin[0] < x) && !place_meeting(x-16,y,obj_solid) {
 		x -= 16;
 	}
 	
-	if keyboard_check_pressed(vk_right) && (moved < move || moveOrigin[0] > x) && !place_meeting(x+16,y,obj_solid) {
+	if keyboard_check_pressed(vk_right) && (moved < tMove || moveOrigin[0] > x) && !place_meeting(x+16,y,obj_solid) {
 		x += 16;
 	}
 	
-	if keyboard_check_pressed(vk_up) && (moved < move || moveOrigin[1] < y) && !place_meeting(x,y-16,obj_solid) {
+	if keyboard_check_pressed(vk_up) && (moved < tMove || moveOrigin[1] < y) && !place_meeting(x,y-16,obj_solid) {
 		y -= 16;
 	}
 	
-	if keyboard_check_pressed(vk_down) && (moved < move || moveOrigin[1] > y) && !place_meeting(x,y+16,obj_solid) {
+	if keyboard_check_pressed(vk_down) && (moved < tMove || moveOrigin[1] > y) && !place_meeting(x,y+16,obj_solid) {
 		y += 16;
 	}
 	
@@ -50,10 +52,10 @@ case 1: //Attacking!
 	}
 	
 	if keyboard_check_pressed(ord("Z")) { //Confirm attack?
+		action = false;
 		obj_dm.Attack(id,obj_ret.hover);
 		actionTaking = -1;
 		firstFrame = true;
-		action = false;
 		TakeTurn();
 	}
 	break;

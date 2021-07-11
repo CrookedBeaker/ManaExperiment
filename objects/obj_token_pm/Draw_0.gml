@@ -2,8 +2,9 @@
 
 if actionTaking = 0 { //Draw some places you can go!
 	draw_sprite(spr_step,0,moveOrigin[0],moveOrigin[1]);
+	var tMove = (spAction = 1) ? move*2 : move;
 	
-	for (var i = 1; i <= move-movedTurn; i++) {
+	for (var i = 1; i <= tMove-movedTurn; i++) {
 		var dY = -i*16;
 		var dX = 0;
 		while (dY != i*16+16) {

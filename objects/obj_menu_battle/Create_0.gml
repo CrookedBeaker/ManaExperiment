@@ -59,13 +59,14 @@ function Select() {
 					instance_destroy(par);
 					break;
 				case 1: //Dash
-					
+					par.par.Dash();
+					instance_destroy();
 					break;
 				case 2: //Disengage
-					
 					break;
 				case 3: //Dodge
-					
+					par.par.Dodge();
+					instance_destroy();
 					break;
 				case 4: //Spells
 					

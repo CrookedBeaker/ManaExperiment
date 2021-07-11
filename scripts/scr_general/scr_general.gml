@@ -1,4 +1,5 @@
 ///General stuff
+randomize();
 
 function Init() {
 	global.partyPC = [ //PC Party members
@@ -13,8 +14,9 @@ function Init() {
 			desc : "Heir to the Sprinklton throne sought\nby a rival assassin clan, he seeks\nvengeance and the truth for the death\nof his family.",
 			
 			weap : "Gauntlet",
-			atk: 5,
-			dmg: 3,
+			atk: 7,
+			spatk: 5,
+			dmg: 5,
 			
 			spellsA : [["Acid Splash"],
 				["Silent Im.","False Life"]],
@@ -28,7 +30,14 @@ function Init() {
 			ss : [0],
 			spr : 1,
 			desc : "An ex-sailor seeking a life of\nadventure. Not much of his past is\nknown beyond that.",
-			weap : "Battleaxe"
+			
+			weap : "Battleaxe",
+			atk: 8,
+			spatk: 0,
+			dmg: 6,
+			
+			spellsA : [["None"]],
+			spellsBA : [["None"]]
 		},
 		{
 			name : "Foster",
@@ -37,7 +46,18 @@ function Init() {
 			ss : [4,3],
 			spr : 2,
 			desc : "Teacher of healing arts turned\nnecromancer, forced into hiding and\nreturning to life through his own\nteachings.",
-			weap : "Scimitars"
+			
+			weap : "Scimitars",
+			atk: 4,
+			spatk: 7,
+			dmg: 2,
+			
+			spellsA : [["Sacred Flame","Thaumaturgy"],
+				["Cure Wounds","Spiritual W.","Guiding Bolt"],
+				["None"]],
+			spellsBA : [["None"],
+				["None"],
+				["None"]]
 		},
 		{
 			name : "Glee",
@@ -46,7 +66,12 @@ function Init() {
 			ss : [4,3],
 			spr : 3,
 			desc : "Persued by wisps of her past life, she\nis constantly on the run, not making\nlasting friendships but is kind-\nhearted.",
+			
 			weap : "Rapier",
+			atk: 4,
+			spatk: 6,
+			dmg: 2,
+			
 			spellsA : [["V. Mockery"],
 				["Cure Wounds","Thunder Wave"]],
 			spellsBA : [["None"],
@@ -57,9 +82,15 @@ function Init() {
 			class : "Paladin",
 			hp : 32,
 			ss : [3],
+			
 			spr : 4,
 			desc : "A dark past, for which he will never\nforget, sets out in an act of\nvengeance, though not himself but for\nthe ones hes lost.",
+			
 			weap : "Warhammer",
+			atk: 5,
+			spatk: 0,
+			dmg: 3,
+			
 			spellsA : [["None"],
 				["???"]],
 			spellsBA : [["None"],
@@ -77,6 +108,7 @@ function Init() {
 			
 			weap : "Crossbow",
 			atk: 5,
+			spatk: 7,
 			dmg: 3,
 			
 			spellsA : [["Fire Bolt"],
@@ -159,6 +191,22 @@ function totalSS(character) {
 		ss += character.ss[i];
 	}
 	return ss;
+}
+
+function weapGetType(weap) {
+	var type;
+	switch weap {
+		case "Scimitars":
+		case "Gauntlet":
+		case "Rapier":
+		case "Battleaxe":
+		case "Warhammer":
+			type = "Melee";
+			break;
+		case "Crossbow":
+			type = "Ranged";
+	}
+	return type;
 }
 
 Init();

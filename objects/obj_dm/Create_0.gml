@@ -54,6 +54,17 @@ function NextTurn() {
 }
 
 function Attack(attacker,target) {
+	//Stop right there if out of melee range.
+	if (weapGetType(attacker.character.weap) = "Melee" && point_distance(attacker.x,attacker.y,target.x,target.y) >= 32) {
+		Log("Target not in melee range.");
+		attacker.action = true; //Give them their action back
+		return;
+	} else if (weapGetType(attacker.character.weap) = "Ranged" && point_distance(attacker.x,attacker.y,target.x,target.y) < 32) {
+		var tooClose = true;
+	} else {
+		var tooClose = false;
+	}
+	
 	Log(attacker.character.name+" attacks "+target.character.name+"!")
 	
 	var atk = 0;
@@ -61,15 +72,27 @@ function Attack(attacker,target) {
 		default:
 			atk = RollDie(20);
 	}
+	if (tooClose || target.spAction = 3) { //If too close for ranged stuff or dodging, it's on disadvantage.
+		atk = RollDis();
+		Log(attacker.character.name+" is at disadvantage!");
+	}
 	atk += attacker.character.atk;
 	
 	//Does it hit?
 	if (atk >= target.character.ac) {
 		var dmg = 0;
 		switch attacker.character.weap { //What kind of weapon?
+			case "Scimitars":
+				dmg = RollDie(6);
+				break;
 			case "Crossbow":
 			case "Gauntlet":
+			case "Rapier":
 				dmg = RollDie(8);
+				break;
+			case "Battleaxe":
+			case "Warhammer":
+				dmg = RollDie(10);
 		}
 		dmg += attacker.character.dmg;
 		target.hp -= dmg;

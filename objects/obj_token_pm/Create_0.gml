@@ -12,6 +12,8 @@ function TakeTurn() {
 	obj_ret.follow = id;
 	obj_ret.controlled = false;
 	
+	spAction = 0;
+	
 	sub = instance_create_depth(obj_camera.x-112,obj_camera.y+112,-1,obj_menu_battle);
 	sub.par = id;
 	
@@ -30,4 +32,16 @@ function Attack() {
 	
 	obj_ret.follow = noone;
 	obj_ret.controlled = true;
+}
+
+function Dash() {
+	spAction = 1;
+	obj_dm.Log(character.name+" dashes!");
+	action = false;
+}
+
+function Dodge() {
+	spAction = 3;
+	obj_dm.Log(character.name+" takes evasive action!");
+	action = false;
 }
