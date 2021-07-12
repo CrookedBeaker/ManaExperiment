@@ -35,6 +35,19 @@ case 0: //Moving!
 	}
 	
 	if keyboard_check_pressed(ord("Z")) { //Confirm movement
+		//Potentially provoke opportunity attacks
+		if (spAction != 2) {
+			//var oaList = ds_list_create();
+			var i = moveOrigin;
+			var j = id;
+			with obj_token_pm { //Placeholder
+				if (distance_to_point(i[0],i[1]) < 32) {
+					obj_dm.Log(character.name+" strikes with opportunity!");
+					obj_dm.Attack(id,j,true);
+				}
+			}
+		}
+		
 		movedTurn += moved;
 		actionTaking = -1;
 		firstFrame = true;
@@ -53,7 +66,7 @@ case 1: //Attacking!
 	
 	if keyboard_check_pressed(ord("Z")) { //Confirm attack?
 		action = false;
-		obj_dm.Attack(id,obj_ret.hover);
+		obj_dm.Attack(id,obj_ret.hover,false);
 		actionTaking = -1;
 		firstFrame = true;
 		TakeTurn();

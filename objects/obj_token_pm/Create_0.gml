@@ -40,6 +40,12 @@ function Dash() {
 	action = false;
 }
 
+function Disengage() {
+	spAction = 2;
+	obj_dm.Log(character.name+" disengages!");
+	action = false;
+}
+
 function Dodge() {
 	spAction = 3;
 	obj_dm.Log(character.name+" takes evasive action!");

@@ -53,9 +53,9 @@ function NextTurn() {
 	}
 }
 
-function Attack(attacker,target) {
+function Attack(attacker,target,opportunity) {
 	//Stop right there if out of melee range.
-	if (weapGetType(attacker.character.weap) = "Melee" && point_distance(attacker.x,attacker.y,target.x,target.y) >= 32) {
+	if (weapGetType(attacker.character.weap) = "Melee" && point_distance(attacker.x,attacker.y,target.x,target.y) > 16 && !opportunity) {
 		Log("Target not in melee range.");
 		attacker.action = true; //Give them their action back
 		return;

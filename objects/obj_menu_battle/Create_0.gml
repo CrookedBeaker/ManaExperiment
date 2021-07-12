@@ -63,6 +63,8 @@ function Select() {
 					instance_destroy();
 					break;
 				case 2: //Disengage
+					par.par.Disengage();
+					instance_destroy();
 					break;
 				case 3: //Dodge
 					par.par.Dodge();
