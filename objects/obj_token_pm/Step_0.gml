@@ -37,11 +37,10 @@ case 0: //Moving!
 	if keyboard_check_pressed(ord("Z")) { //Confirm movement
 		//Potentially provoke opportunity attacks
 		if (spAction != 2) {
-			//var oaList = ds_list_create();
 			var i = moveOrigin;
 			var j = id;
 			with obj_token_pm { //Placeholder
-				if (distance_to_point(i[0],i[1]) < 32) {
+				if (distance_to_point(i[0],i[1]) < 32 && distance_to_point(j.x,j.y) > 16 && j != id) {
 					obj_dm.Log(character.name+" strikes with opportunity!");
 					obj_dm.Attack(id,j,true);
 				}
