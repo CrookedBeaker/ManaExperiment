@@ -1,6 +1,6 @@
 /// @description Set up some stuff
 
-function MakeMenu(labelArray,menuID,big) { //Generate a menu
+function MakeMenu(labelArray,menuID,big=false) { //Generate a menu
 	//Remove existing buttons
 	for (var i=0; i<array_length(buttons); i++) {
 		instance_destroy(buttons[i])
@@ -12,6 +12,7 @@ function MakeMenu(labelArray,menuID,big) { //Generate a menu
 		buttons[i].index = array_length(labelArray)-i-1;
 		buttons[i].label = labelArray[array_length(labelArray)-i-1];
 		buttons[i].par = id;
+		buttons[i].sprite_index = big ? spr_menubutton_big : spr_menubutton;
 	}
 	
 	id.menuID = menuID;
@@ -24,6 +25,13 @@ function MakeSubMenu(menuID) { //Generate a sub-menu
 	with sub {
 		SetMenu(menuID);
 	}
+}
+
+function MakeSpellsMenu(character,spellLen) {
+	sub = menuMagic(x+16,character,spellLen);
+	sub.par = id;
+	
+	
 }
 
 function SetMenu(menuID) {

@@ -19,7 +19,7 @@ function SetMenu(menuID) {
 			break;
 	}
 	
-	MakeMenu(l,menuID,false);
+	MakeMenu(l,menuID,true);
 }
 
 function Select() {

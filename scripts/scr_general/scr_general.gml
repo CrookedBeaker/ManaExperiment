@@ -36,8 +36,8 @@ function Init() {
 			spatk: 0,
 			dmg: 6,
 			
-			spellsA : [["None"]],
-			spellsBA : [["None"]]
+			spellsA : [["None"],["None"]],
+			spellsBA : [["None"],["None"]]
 		},
 		{
 			name : "Foster",
@@ -92,7 +92,7 @@ function Init() {
 			dmg: 3,
 			
 			spellsA : [["None"],
-				["???"]],
+				["None"]],
 			spellsBA : [["None"],
 				["Div. Smite"]]
 		},
@@ -126,7 +126,10 @@ function Init() {
 			ss : [4,3,3,3,2],
 			spr : 0,
 			desc : "A creation of Hades once in servitude\nto Thio the Strong Man, he now lives a\nlife of his own and serves no-one.",
-			weap : "None"
+			weap : "None",
+			
+			spellsA : [["None"],["None"]],
+			spellsBA : [["None"],["None"]]
 		},
 		{
 			name : "Lilly",
@@ -135,7 +138,10 @@ function Init() {
 			ss : [0],
 			spr : 1,
 			desc : "A sentient plant confident in her\nabilities who tends to copy the\nactions and mannerisms of those\naround her.",
-			weap : "Greatsword"
+			weap : "Greatsword",
+			
+			spellsA : [["None"],["None"]],
+			spellsBA : [["None"],["None"]]
 		},
 		{
 			name : "Doot",
@@ -144,7 +150,10 @@ function Init() {
 			ss : [4,3,3,3,2,1,1,1],
 			spr : 2,
 			desc : "A perveyor of knowledge brought back\nto life by an unknown force, he has\nbecome well known throughout the\nland.",
-			weap : "Crossbow"
+			weap : "Crossbow",
+			
+			spellsA : [["None"],["None"]],
+			spellsBA : [["None"],["None"]]
 		},
 		{
 			name : "Tark",
@@ -153,7 +162,10 @@ function Init() {
 			ss : [4,3,2],
 			spr : 3,
 			desc : "A reanimated suit of armor who has\nlearned much of the world of magic\nthrough his time in the Necromancer's\nCastle.",
-			weap : "Battleaxe"
+			weap : "Battleaxe",
+			
+			spellsA : [["None"],["None"]],
+			spellsBA : [["None"],["None"]]
 		},
 		{
 			name : "Huey",
@@ -162,7 +174,10 @@ function Init() {
 			ss : [0],
 			spr : 4,
 			desc : "Saved from death in the Tree of\nImpurity, he has become a faithful\nally, mostly loyal to Foster.",
-			weap : "Fangs"
+			weap : "Fangs",
+			
+			spellsA : [["None"],["None"]],
+			spellsBA : [["None"],["None"]]
 		},
 		{
 			name : "Valerie",
@@ -171,7 +186,10 @@ function Init() {
 			ss : [0],
 			spr : 5,
 			desc : "Separated from her tribe during a\nraid of the party's wagon, the\nstubborn master of Ki is now in good\ncompany.",
-			weap : "Quarterstaff"
+			weap : "Quarterstaff",
+			
+			spellsA : [["None"],["None"]],
+			spellsBA : [["None"],["None"]]
 		},
 		{
 			name : "Fledge",
@@ -180,7 +198,10 @@ function Init() {
 			ss : [4,3,2],
 			spr : 6,
 			desc : "Isolated for most of his life, he is\nattuned to nature and wishes to see\nthe world once more.",
-			weap : "Wood Staff"
+			weap : "Wood Staff",
+			
+			spellsA : [["None"],["None"]],
+			spellsBA : [["None"],["None"]]
 		}
 	]
 }
@@ -204,6 +225,8 @@ function weapGetType(weap) {
 			type = "Melee";
 			break;
 		case "Crossbow":
+		case "Shortbow":
+		case "Longbow":
 			type = "Ranged";
 	}
 	return type;

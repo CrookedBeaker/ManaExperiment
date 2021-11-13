@@ -28,7 +28,7 @@ function Select() {
 					break;
 				case 1: //Magic/Back
 					if (character.ss != 0) {
-						//Get the magic menu
+						MakeSpellsMenu(character,0);
 					} else {
 						instance_destroy();
 					}
