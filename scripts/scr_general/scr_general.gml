@@ -112,7 +112,7 @@ function Init() {
 			dmg: 3,
 			
 			spellsA : [["Fire Bolt"],
-				["Cure Wounds","Faerie Fire","Grease","Ray of Sick."]],
+				["Faerie Fire","Grease","Ray of Sick."]],
 			spellsBA : [["None"],
 				["Exp. Retreat","Heal. Word"]]
 		}

@@ -1,8 +1,8 @@
 /// @description Select de bitch
 
-if (menuID = -1) {SetMenu(0)};
+if (menuID == -1) {SetMenu(0)};
 
-if (sub = noone) {
+if (sub == noone && !hide) {
 
 //Scroll
 if keyboard_check_pressed(vk_down) {

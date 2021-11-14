@@ -57,4 +57,40 @@ function Select() {
 	//Overwrite this function to add functionality
 }
 
-//MakeMenu(["Sample","Sample","Sample"],0,false); //Test
+function Hide() {
+	hide = true;
+	
+	for (var i = 0; i < array_length(buttons); i++) {
+		buttons[i].hide = true;
+	}
+	
+	if (sub != noone) {
+		if !sub.hide {
+			with sub {Hide()};
+		}
+	}
+	if (par != noone) {
+		if !par.hide {
+			with par {Hide()};
+		}
+	}
+}
+
+function Show() {
+	hide = false;
+	
+	for (var i = 0; i < array_length(buttons); i++) {
+		buttons[i].hide = false;
+	}
+	
+	if (sub != noone) {
+		if sub.hide {
+			with sub {Show()};
+		}
+	}
+	if (par != noone) {
+		if par.hide {
+			with par {Show()};
+		}
+	}
+}

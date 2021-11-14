@@ -44,53 +44,60 @@ function SetMenu(menuID) {
 }
 
 function Select() {
-	switch buttons[array_length(buttons)-index-1].label {
-		case "Back":
+	if (room != rm_party_pc && room != rm_party_npc) { //Actual use in combat
+	
+		switch buttons[array_length(buttons)-index-1].label {
+			case "Back":
+				instance_destroy();
+				break;
+			
+		}
+	
+	} else { //Viewing these spells in the party listing by hiding
+		if (index == array_length(buttons)-1) {
 			instance_destroy();
-			break;
-		
+		} else {
+			Hide();
+		}
 	}
-	/*
-	switch menuID {
-		case 0: //Main
-			
-			switch index {
-				case 0: //Party
-					MakeSubMenu(1);
-					break;
-				case 1: //Party
-					MakeSubMenu(2);
-					break;
-				case 2: //Quit
-					game_end();
-			}
-			break;
-		
-		case 1: //Sub - Party
-			
-			switch index {
-				case 0: //Main
-					room_goto(rm_party_pc);
-					break;
-				case 1: //NPCs
-					room_goto(rm_party_npc);
-					break;
-				case 2: //Back
-					instance_destroy();
-			}
-			break;
-			
-		case 2: //Sub - Battle
-			
-			switch index {
-				case 0: //Test
-					room_goto(rm_battle);
-					break;
-				case 1: //Back
-					instance_destroy();
-			}
-			break;
-	}
-	*/
-	//Overwrite this function to add functionality
 }
+
+//Because I have to apparently, I'm putting this here.
+function Hide() {
+	hide = true;
+	
+	for (var i = 0; i < array_length(buttons); i++) {
+		buttons[i].hide = true;
+	}
+	
+	if (sub != noone) {
+		if !sub.hide {
+			with sub {Hide()};
+		}
+	}
+	if (par != noone) {
+		if !par.hide {
+			with par {Hide()};
+		}
+	}
+}
+
+function Show() {
+	hide = false;
+	
+	for (var i = 0; i < array_length(buttons); i++) {
+		buttons[i].hide = false;
+	}
+	
+	if (sub != noone) {
+		if sub.hide {
+			with sub {Show()};
+		}
+	}
+	if (par != noone) {
+		if par.hide {
+			with par {Show()};
+		}
+	}
+}
+
