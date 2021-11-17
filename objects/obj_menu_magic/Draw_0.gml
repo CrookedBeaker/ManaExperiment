@@ -24,16 +24,34 @@ switch buttons[array_length(buttons)-index-1].label {
 		
 	//Level 1
 	case "Cure Wounds":
-		s = "Cure Wounds\nEvocation lv. 1\n\nRestores hit points based on the\ncaster's ability.";
+		s = "Cure Wounds\nEvocation lv. 1\n\nThe caster touches a creature and\nrestores hit points based on their\nspellcasting ability.";
 		break;
 	case "Div. Smite":
 		s = "Divine Smite\nPaladin feature\n\nAdds extra radiant damage to the next\nmelee weapon attack.";
 		break;
+	case "Exp. Retreat":
+		s = "Expeditious Retreat\nTransmutaion lv. 1\nConcentration required\n\nThe caster can dash as a bonus\naction and upon casting.";
+		break;
 	case "Faerie Fire":
-		s = "Faerie Fire\nEvocation lv. 1\n\nEveryone in a 4x4 square is covered in\nlight on a failed DEX save.\nIlluminated creatures are easier to hit.";
+		s = "Faerie Fire\nEvocation lv. 1\nConcentration required\n\nEveryone in a 4x4 square is covered\nin light on a failed DEX save.\nIlluminated creatures are easier to\nhit.";
+		break;
+	case "False Life":
+		s = "False Life\nNecromancy lv. 1\n\nGrants a few temporary hit points to\nthe caster.";
+		break;
+	case "Guiding Bolt":
+		s = "Guiding Bolt\nEvocation lv. 1\n\nA ranged attack that does radiant\ndamage and illuminates the target.\nIlluminated creatures are easier to\nhit.";
+		break;
+	case "Heal. Word":
+		s = "Healing Word\nEvocation lv. 1\n\nRestores a few hit points at a range\nbased on the caster's ability.";
+		break;
+	case "Silent Im.":
+		s = "Silent Image\nIllusion lv. 1\nConcentration required\n\nIn combat, it can create an illusory\nclone of the caster.";
 		break;
 	case "Thunder Wave":
-		s = "Thunder Wave\nEvocation lv. 1\n\nEveryone in a 3x3 square near the caseter\nis pushed 2 squares away and takes thunder\ndamage on a failed CON save.";
+		s = "Thunder Wave\nEvocation lv. 1\n\nEveryone in a 3x3 square near the\ncaster is pushed 2 squares away and\ntakes thunder damage on a failed CON\nsave.";
+		break;
+	case "Ray of Sick.":
+		s = "Ray of Sickness\nNecromancy lv. 1\n\nA ranged attack that does poison\ndamage, poisoning the target on a\nfailed CON save.";
 		break;
 }
 
@@ -41,6 +59,6 @@ draw_set_font(fnt_main_bold);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text(8,112,s);
+draw_text(16,112,s);
 
 }

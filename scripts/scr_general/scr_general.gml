@@ -19,9 +19,9 @@ function Init() {
 			dmg: 5,
 			
 			spellsA : [["Acid Splash"],
-				["Silent Im.","False Life"]],
+				["Silent Im."]],
 			spellsBA : [["None"],
-				["None"]]
+				["False Life"]]
 		},
 		{
 			name : "Tordan",
@@ -53,8 +53,8 @@ function Init() {
 			dmg: 2,
 			
 			spellsA : [["Sacred Flame","Thaumaturgy"],
-				["Cure Wounds","Spiritual W.","Guiding Bolt"],
-				["None"]],
+				["Cure Wounds","Guiding Bolt"],
+				["Spiritual W."]],
 			spellsBA : [["None"],
 				["None"],
 				["None"]]
@@ -112,7 +112,7 @@ function Init() {
 			dmg: 3,
 			
 			spellsA : [["Fire Bolt"],
-				["Faerie Fire","Grease","Ray of Sick."]],
+				["Faerie Fire","Ray of Sick."]],
 			spellsBA : [["None"],
 				["Exp. Retreat","Heal. Word"]]
 		}

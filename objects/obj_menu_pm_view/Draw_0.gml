@@ -46,8 +46,8 @@ if (totalSS(character) != 0) {
 
 if (menuID == 0 && !hide) {
 	draw_set_color(c_white);
-	draw_text(8,112,character.desc);
+	draw_text(16,112,character.desc);
 } else if (menuID == 1) {
 	draw_set_color(make_color_rgb(166,167,37));
-	draw_text(8,112,"Weapon: "+character.weap);
+	draw_text(16,112,"Weapon: "+character.weap);
 }
