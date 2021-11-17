@@ -22,7 +22,7 @@ function Log(msg) {
 Log("");
 Log("");
 Log("");
-Log("");
+Log("Roll Initiative!");
 
 //DICE!!!
 function RollDie(sides) {

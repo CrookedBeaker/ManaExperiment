@@ -40,6 +40,7 @@
     {"id":{"name":"spr_party_pc","path":"sprites/spr_party_pc/spr_party_pc.yy",},"order":1,},
     {"id":{"name":"spr_ret","path":"sprites/spr_ret/spr_ret.yy",},"order":1,},
     {"id":{"name":"spr_title_d","path":"sprites/spr_title_d/spr_title_d.yy",},"order":0,},
+    {"id":{"name":"scr_gameactions","path":"scripts/scr_gameactions/scr_gameactions.yy",},"order":2,},
     {"id":{"name":"obj_dm","path":"objects/obj_dm/obj_dm.yy",},"order":0,},
     {"id":{"name":"obj_token_pm","path":"objects/obj_token_pm/obj_token_pm.yy",},"order":1,},
     {"id":{"name":"spr_dbox","path":"sprites/spr_dbox/spr_dbox.yy",},"order":4,},
