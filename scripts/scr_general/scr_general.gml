@@ -232,4 +232,25 @@ function weapGetType(weap) {
 	return type;
 }
 
+function weapGetDmgDie(weap) {
+	var die;
+	switch weap {
+		case "Daggers":
+			die = 4;
+		case "Scimitars":
+		case "Fangs":
+			die = 6;
+			break;
+		case "Crossbow":
+		case "Gauntlet":
+		case "Rapier":
+			die = 8;
+			break;
+		case "Battleaxe":
+		case "Warhammer":
+			die = 10;
+	}
+	return die;
+}
+
 Init();

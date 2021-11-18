@@ -2,33 +2,67 @@
 global.aQueue = ds_queue_create();
 global.lastHit = false;
 global.lastRoll = 0;
+global.lastDmgType = 0;
 
+//Macros
+//Die rolls
+#macro dr_adv = 1;
+#macro dr_normal = 0;
+#macro dr_disadv = -1;
+
+//Damage types
+#macro dt_bludgeoning = 0;
+#macro dt_slashing = 1;
+#macro dt_piercing = 2;
+#macro dt_fire = 3;
+#macro dt_acid = 4;
+#macro dt_cold = 5;
+#macro dt_lightning = 6;
+#macro dt_thunder = 7;
+#macro dt_poison = 8;
+#macro dt_necrotic = 9;
+#macro dt_radiant = 10;
+#macro dt_force = 11;
+
+/*
+	=Info Packets=
+	This is how actions will be stored in the queue, as arrays.
+	The following list will be how the different packets are formatted.
+	
+	Log Post: [0,"message"]
+	Die Roll: [1,sides,number,modifier,advantage]
+	Attack Check: [2,target,weapon]						(Done right after a die roll to contest AC)
+	Damage Application: [3,target,type]					(Also done after a die roll, can only be created by an attack check.)
+*/
 
 //Clear it
-function ClearAcQueue() {
+function clearAcQueue() {
 	ds_queue_clear(global.aQueue);
 }
 
-function QueueLog(msg) {
-	
+function queueLog(msg) {
+	ds_queue_enqueue(global.aQueue,[0,msg]);
 }
 
-function QueueDieRoll(sides,amod=0) {
-	
+function queueDieRoll(sides,number,amod=0,adv=0) {
+	ds_queue_enqueue(global.aQueue,[1,sides,number,amod,adv]);
 }
 
-function QueueRollAdv(amod=0) {
-	
+function queueAttack(attacker,target) {
+	queueDieRoll(weapGetDmgDie(attacker.character.weap),attacker.character.atk);
+	ds_queue_enqueue(global.aQueue,[2,target,attacker.character.weap]);
 }
 
-function QueueRollDis(amod=0) {
-	
+function queueDamage(target,die,number,amod,type) {
+	queueDieRoll(die,number,amod);
+	ds_queue_enqueue(global.aQueue,[3,target,type]);
 }
 
-function QueueAttack(weapon,attacker,target,opportunity=false) {
+/*
+function queueAttack(weapon,attacker,target,opportunity=false) {
 	//Stop right there if out of melee range.
 	if (weapGetType(weapon) = "Melee" && point_distance(attacker.x,attacker.y,target.x,target.y) > 16 && !opportunity) {
-		QueueLog("Target not in melee range.");
+		queueLog("Target not in melee range.");
 		attacker.action = true; //Give them their action back
 		return;
 	} else if (weapGetType(weapon) = "Ranged" && point_distance(attacker.x,attacker.y,target.x,target.y) < 32) {
@@ -37,16 +71,16 @@ function QueueAttack(weapon,attacker,target,opportunity=false) {
 		var tooClose = false;
 	}
 	
-	QueueLog(attacker.character.name+" attacks "+target.character.name+"!");
+	queueLog(attacker.character.name+" attacks "+target.character.name+"!");
 	
 	var atk = 0;
 	switch target.status { //Any statuses to impose advantage or disadvantage?
 		default:
-			atk = QueueDieRoll(20);
+			atk = queueDieRoll(20);
 	}
 	if (tooClose || target.spAction = 3) { //If too close for ranged stuff or dodging, it's on disadvantage.
-		atk = QueueRollDis();
-		QueueLog(attacker.character.name+" is at disadvantage!");
+		atk = queueRollDis();
+		queueLog(attacker.character.name+" is at disadvantage!");
 	}
 	atk += attacker.character.atk;
 	
@@ -55,24 +89,20 @@ function QueueAttack(weapon,attacker,target,opportunity=false) {
 		var dmg = 0;
 		switch attacker.character.weap { //What kind of weapon?
 			case "Scimitars":
-				dmg = QueueDieRoll(6,attacker.character.dmg);
+				dmg = queueDieRoll(6,attacker.character.dmg);
 				break;
 			case "Crossbow":
 			case "Gauntlet":
 			case "Rapier":
-				dmg = QueueDieRoll(8,attacker.character.dmg);
+				dmg = queueDieRoll(8,attacker.character.dmg);
 				break;
 			case "Battleaxe":
 			case "Warhammer":
-				dmg = QueueDieRoll(10,attacker.character.dmg);
+				dmg = queueDieRoll(10,attacker.character.dmg);
 		}
 		
-		QueueLog(target.character.name+" takes "+string(dmg)+" damage!");
+		queueLog(target.character.name+" takes "+string(dmg)+" damage!");
 	} else {
-		QueueLog("...they miss.");
+		queueLog("...they miss.");
 	}
-}
-
-function QueueDamage(target,dmg,type) {
-	
 }
