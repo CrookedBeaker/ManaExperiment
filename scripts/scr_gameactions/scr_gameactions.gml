@@ -31,7 +31,7 @@ global.lastDmgType = 0;
 	
 	Log Post: [0,"message"]
 	Die Roll: [1,sides,number,modifier,advantage]
-	Attack Check: [2,target,weapon]						(Done right after a die roll to contest AC)
+	Attack Check: [2,target,attacker]					(Done right after a die roll to contest AC)
 	Damage Application: [3,target,type]					(Also done after a die roll, can only be created by an attack check.)
 */
 
@@ -48,12 +48,12 @@ function queueDieRoll(sides,number,amod=0,adv=0) {
 	ds_queue_enqueue(global.aQueue,[1,sides,number,amod,adv]);
 }
 
-function queueAttack(attacker,target) {
-	queueDieRoll(weapGetDmgDie(attacker.character.weap),attacker.character.atk);
-	ds_queue_enqueue(global.aQueue,[2,target,attacker.character.weap]);
+function queueAttack(attacker,target) { //Keep in mind this uses token instance IDs as inputs!!!
+	queueDieRoll(20,1,attacker.character.atk);
+	ds_queue_enqueue(global.aQueue,[2,target,attacker]);
 }
 
-function queueDamage(target,die,number,amod,type) {
+function queueDamage(target,die,number,amod,type) { //
 	queueDieRoll(die,number,amod);
 	ds_queue_enqueue(global.aQueue,[3,target,type]);
 }

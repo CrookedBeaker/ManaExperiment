@@ -24,6 +24,7 @@
     {"id":{"name":"spr_magicuihead","path":"sprites/spr_magicuihead/spr_magicuihead.yy",},"order":6,},
     {"id":{"name":"rm_party_npc","path":"rooms/rm_party_npc/rm_party_npc.yy",},"order":3,},
     {"id":{"name":"spr_menubutton_big","path":"sprites/spr_menubutton_big/spr_menubutton_big.yy",},"order":1,},
+    {"id":{"name":"obj_roller","path":"objects/obj_roller/obj_roller.yy",},"order":8,},
     {"id":{"name":"rm_title_menu","path":"rooms/rm_title_menu/rm_title_menu.yy",},"order":1,},
     {"id":{"name":"obj_menu_battle","path":"objects/obj_menu_battle/obj_menu_battle.yy",},"order":5,},
     {"id":{"name":"obj_title_d_static","path":"objects/obj_title_d_static/obj_title_d_static.yy",},"order":3,},
