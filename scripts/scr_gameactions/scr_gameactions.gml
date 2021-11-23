@@ -6,23 +6,23 @@ global.lastDmgType = 0;
 
 //Macros
 //Die rolls
-#macro dr_adv = 1;
-#macro dr_normal = 0;
-#macro dr_disadv = -1;
+#macro dr_adv 1
+#macro dr_normal 0
+#macro dr_disadv -1
 
 //Damage types
-#macro dt_bludgeoning = 0;
-#macro dt_slashing = 1;
-#macro dt_piercing = 2;
-#macro dt_fire = 3;
-#macro dt_acid = 4;
-#macro dt_cold = 5;
-#macro dt_lightning = 6;
-#macro dt_thunder = 7;
-#macro dt_poison = 8;
-#macro dt_necrotic = 9;
-#macro dt_radiant = 10;
-#macro dt_force = 11;
+#macro dt_bludgeoning 0
+#macro dt_slashing 1
+#macro dt_piercing 2
+#macro dt_fire 3
+#macro dt_acid 4
+#macro dt_cold 5
+#macro dt_lightning 6
+#macro dt_thunder 7
+#macro dt_poison 8
+#macro dt_necrotic 9
+#macro dt_radiant 10
+#macro dt_force 11
 
 /*
 	=Info Packets=

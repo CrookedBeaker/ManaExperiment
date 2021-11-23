@@ -253,4 +253,68 @@ function weapGetDmgDie(weap) {
 	return die;
 }
 
+function weapGetDmgType(weap) {
+	var type;
+	switch weap {
+		case "Gauntlet":
+		case "Warhammer":
+			type = dt_bludgeoning;
+			break;
+		case "Scimitars":
+		case "Battleaxe":
+			type = dt_slashing;
+			break;
+		case "Daggers":
+		case "Fangs":
+		case "Crossbow":
+		case "Rapier":
+			type = dt_piercing;
+			break;
+	}
+	return type;
+}
+
+function dmgTypeToString(type) {
+	var t = "something";
+	switch type {
+		case dt_bludgeoning:
+			t = "bludgeoning";
+			break;
+		case dt_slashing:
+			t = "slashing";
+			break;
+		case dt_piercing:
+			t = "piercing";
+			break;
+		case dt_fire:
+			t = "bludgeoning";
+			break;
+		case dt_acid:
+			t = "bludgeoning";
+			break;
+		case dt_cold:
+			t = "bludgeoning";
+			break;
+		case dt_lightning:
+			t = "bludgeoning";
+			break;
+		case dt_thunder:
+			t = "bludgeoning";
+			break;
+		case dt_poison:
+			t = "bludgeoning";
+			break;
+		case dt_necrotic:
+			t = "bludgeoning";
+			break;
+		case dt_radiant:
+			t = "bludgeoning";
+			break;
+		case dt_force:
+			t = "bludgeoning";
+			break;
+	}
+	return t;
+}
+
 Init();

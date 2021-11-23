@@ -30,10 +30,21 @@ function nextAction() {
 		case 2: //Attack Check: [2,target,attacker]
 			queueLog(a[2].character.name+" attacks "+a[1].character.name+"!");
 			
-			if (global.lastRoll >= a[1].character.ac) {
-				
+			if (global.lastRoll >= a[1].character.ac) { //"Does a 27 hit?"
+				queueDamage(
+					a[1],
+					weapGetDmgDie(a[2].character.weap),
+					1,
+					a[2].character.dmg,
+					weapGetDmgType(a[2].character.weap)
+				)
 			} else {
 				queueLog("...and misses.");
 			}
+			break;
+		case 3: //Damage Application: [3,target,type]
+			var t = dmgTypeToString(a[2]);
+			a[2].hp -= global.lastRoll;
+			queueLog(a[1].character.name+" takes "+global.lastRoll+" "+t+" damage!");
 	}
 }
