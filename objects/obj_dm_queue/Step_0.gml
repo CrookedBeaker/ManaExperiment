@@ -1,10 +1,11 @@
 /// @description Get the stuff rolling!
-if !wait { //Interpret queued actions
+
+if (!wait && !ds_queue_empty(global.aQueue)) { //Interpret queued actions
 	var a = ds_queue_dequeue(global.aQueue);
 	
 	switch a[0] {
 		case 0: //Log Post: [0,"message"]
-			log(a[1]);
+			Log(a[1]);
 			alarm[0] = 60; //Wait between actions
 			break;
 		case 1: //Die Roll: [1,sides,number,modifier,advantage]

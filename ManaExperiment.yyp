@@ -34,6 +34,7 @@
     {"id":{"name":"spr_party_selector","path":"sprites/spr_party_selector/spr_party_selector.yy",},"order":0,},
     {"id":{"name":"fnt_main_bold","path":"fonts/fnt_main_bold/fnt_main_bold.yy",},"order":1,},
     {"id":{"name":"spr_party_header","path":"sprites/spr_party_header/spr_party_header.yy",},"order":4,},
+    {"id":{"name":"obj_token_pm_queue","path":"objects/obj_token_pm_queue/obj_token_pm_queue.yy",},"order":6,},
     {"id":{"name":"spr_menubutton","path":"sprites/spr_menubutton/spr_menubutton.yy",},"order":2,},
     {"id":{"name":"obj_dm_queue","path":"objects/obj_dm_queue/obj_dm_queue.yy",},"order":5,},
     {"id":{"name":"obj_menu_pm","path":"objects/obj_menu_pm/obj_menu_pm.yy",},"order":3,},

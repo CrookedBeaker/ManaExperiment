@@ -44,8 +44,10 @@ function Select() {
 					par.action = true;
 					par.baction = true;
 					instance_destroy();
-					with obj_dm {
-						NextTurn();
+					//with obj_dm {
+					with obj_dm_queue {
+						//NextTurn();
+						nextTurn();
 					}
 			}
 			break;
@@ -86,5 +88,4 @@ function Select() {
 			}
 			break;
 	}
-	//Overwrite this function to add functionality
 }
