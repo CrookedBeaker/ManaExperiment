@@ -42,12 +42,12 @@ function Dash() {
 
 function Disengage() {
 	spAction = 2;
-	obj_dm.Log(character.name+" disengages!");
+	queueLog(character.name+" disengages!");
 	action = false;
 }
 
 function Dodge() {
 	spAction = 3;
-	obj_dm.Log(character.name+" takes evasive action!");
+	queueLog(character.name+" takes evasive action!");
 	action = false;
 }

@@ -60,7 +60,7 @@ case 1: //Attacking!
 	if keyboard_check_pressed(ord("X")) { //Get that out of here
 		actionTaking = -1;
 		firstFrame = true;
-		TakeTurn();
+		queueTurnResume();
 	}
 	
 	if keyboard_check_pressed(ord("Z")) { //Confirm attack?
@@ -68,7 +68,7 @@ case 1: //Attacking!
 		queueAttack(id,obj_ret.hover);
 		actionTaking = -1;
 		firstFrame = true;
-		TakeTurn();
+		queueTurnResume();
 	}
 	break;
 }

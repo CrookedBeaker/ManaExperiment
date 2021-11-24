@@ -47,7 +47,8 @@ function Select() {
 					//with obj_dm {
 					with obj_dm_queue {
 						//NextTurn();
-						nextTurn();
+						//nextTurn();
+						turnOver = true;
 					}
 			}
 			break;

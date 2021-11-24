@@ -24,9 +24,12 @@ if controlled {
 	}
 	
 	//Get hovered object
+	hover = instance_place(x,y,obj_token_pm_queue);
+	/*
 	if place_meeting(x,y,obj_token_pm) {
 		with obj_token_pm {
 			if place_meeting(x,y,obj_ret) {obj_ret.hover = id}
 		}
 	}
+	*/
 }

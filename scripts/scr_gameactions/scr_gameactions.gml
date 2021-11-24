@@ -33,6 +33,7 @@ global.lastDmgType = 0;
 	Die Roll: [1,sides,number,modifier,advantage]
 	Attack Check: [2,target,attacker]					(Done right after a die roll to contest AC)
 	Damage Application: [3,target,type]					(Also done after a die roll, can only be created by an attack check.)
+	Resume Turn: [4,obj]								(Only added by the tokens themselves)
 */
 
 function queueLog(msg) {
@@ -51,4 +52,8 @@ function queueAttack(attacker,target) { //Keep in mind this uses token instance 
 function queueDamage(target,die,number,amod,type) { //
 	queueDieRoll(die,number,amod);
 	ds_queue_enqueue(global.aQueue,[3,target,type]);
+}
+
+function queueTurnResume() {
+	ds_queue_enqueue(global.aQueue,[4,id]);
 }
