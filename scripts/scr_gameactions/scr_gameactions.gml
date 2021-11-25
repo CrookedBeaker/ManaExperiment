@@ -45,6 +45,7 @@ function queueDieRoll(sides,number,amod=0,adv=0) {
 }
 
 function queueAttack(attacker,target) { //Keep in mind this uses token instance IDs as inputs!!!
+	queueLog(attacker.character.name+" attacks "+target.character.name+"!");
 	queueDieRoll(20,1,attacker.character.atk);
 	ds_queue_enqueue(global.aQueue,[2,target,attacker]);
 }
@@ -54,6 +55,6 @@ function queueDamage(target,die,number,amod,type) { //
 	ds_queue_enqueue(global.aQueue,[3,target,type]);
 }
 
-function queueTurnResume() {
-	ds_queue_enqueue(global.aQueue,[4,id]);
+function queueTurnResume(token) { //Keep in mind this uses a token instance ID as input!!!
+	ds_queue_enqueue(global.aQueue,[4,token]);
 }

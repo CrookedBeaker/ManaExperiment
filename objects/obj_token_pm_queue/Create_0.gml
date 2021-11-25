@@ -11,6 +11,7 @@ SetStuff(character);
 function TakeTurn() {
 	obj_ret.follow = id;
 	obj_ret.controlled = false;
+	obj_ret.hidden = false;
 	
 	spAction = 0;
 	

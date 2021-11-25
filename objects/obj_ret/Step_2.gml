@@ -1,5 +1,7 @@
 /// @description Follow a character!
 
+image_alpha = !hidden;
+
 if (follow != noone) {
 	x = follow.x;
 	y = follow.y;
