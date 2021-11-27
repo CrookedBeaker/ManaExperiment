@@ -1,9 +1,10 @@
 /// @description Draw spell descriptions!
 //draw_text(16,80,string(hide));
-if (variable_instance_exists(id,"buttons") && array_length(buttons) != 0 && hide) {
+if (variable_instance_exists(id,"buttons") && array_length(buttons) != 0){
+if hide {
 
-var s = "";
-
+	var s = "";
+	
 switch buttons[array_length(buttons)-index-1].label {
 	//Cantrips
 	case "Acid Splash":
@@ -60,5 +61,19 @@ draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
 draw_text(16,112,s);
+
+} else {//Draw the top bar if not hidden
+	draw_set_font(fnt_main_bold);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	
+	draw_set_color(make_color_rgb(117,33,148));
+	draw_sprite(spr_magicuihead,0,x,y-16*(array_length(buttons)+1));
+	draw_text(x+25,y-16*(array_length(buttons)+1)+6,string(menuID)); //Level
+	
+	draw_set_color(make_color_rgb(56,55,188));
+	var slots = (menuID == 0) ? "X" : string(character.ss[menuID-1]);
+	draw_text(x+62,y-16*(array_length(buttons)+1)+6,slots); //Spell slots
+}
 
 }
