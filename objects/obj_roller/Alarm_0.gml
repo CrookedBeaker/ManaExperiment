@@ -1,6 +1,6 @@
 /// @description Keep it rolling!
 
-for (var i=0; i<number+sign(adv); i++) {
+for (var i=0; i<number+abs(adv); i++) {
 	val[i] = irandom_range(1,sides);
 }
 

@@ -16,7 +16,7 @@ if !ds_queue_empty(global.aQueue) {
 				inst.amod = a[3];
 				inst.adv = a[4];
 				break;
-			case 2: //Attack Check: [2,target,attacker]
+			case 2: //Attack Check: [2,target,attacker,attacker's turn]
 				if (global.lastRoll >= a[1].character.ac) { //"Does a 27 hit?"
 					queueLog("...and hits!");
 					queueDamage(
@@ -29,7 +29,7 @@ if !ds_queue_empty(global.aQueue) {
 				} else {
 					queueLog("...and misses.");
 				}
-				queueTurnResume(a[2]);
+				queueTurnResume(a[3] ? a[2] : a[1]); //Resume the correct turn
 				alarm[0] = 1; //The next thing.
 				break;
 			case 3: //Damage Application: [3,target,type]

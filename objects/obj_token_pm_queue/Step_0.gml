@@ -8,7 +8,7 @@ case 0: //Moving!
 	obj_ret.x = -16;
 	obj_ret.y = -16;
 	
-	var tMove = (spAction = 1) ? move*2 : move;
+	var tMove = (spAction = sa_dash) ? move*2 : move;
 	
 	if keyboard_check_pressed(vk_left) && (moved < tMove || moveOrigin[0] < x) && !place_meeting(x-16,y,obj_solid) {
 		x -= 16;
@@ -36,13 +36,15 @@ case 0: //Moving!
 	
 	if keyboard_check_pressed(ord("Z")) { //Confirm movement
 		//Potentially provoke opportunity attacks
-		if (spAction != 2) {
+		var opped = false;
+		if (spAction != sa_disengage) {
 			var i = moveOrigin;
 			var j = id;
-			with obj_token_pm { //Placeholder
+			with obj_token_pm_queue { //Placeholder
 				if (distance_to_point(i[0],i[1]) < 32 && distance_to_point(j.x,j.y) > 16 && j != id) {
 					queueLog(character.name+" strikes with opportunity!");
-					queueAttack(id,j);
+					queueAttack(id,j,false);
+					opped = true;
 				}
 			}
 		}
@@ -50,7 +52,7 @@ case 0: //Moving!
 		movedTurn += moved;
 		actionTaking = -1;
 		firstFrame = true;
-		TakeTurn();
+		if !opped {TakeTurn()};
 	}
 	
 	moved = (abs(x-moveOrigin[0])+abs(y-moveOrigin[1]))/16 + movedTurn;

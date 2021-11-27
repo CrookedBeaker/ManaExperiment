@@ -24,6 +24,12 @@ global.lastDmgType = 0;
 #macro dt_radiant 10
 #macro dt_force 11
 
+//Special actions
+#macro sa_none 0
+#macro sa_dash 1
+#macro sa_disengage 2
+#macro sa_dodge 3
+
 /*
 	=Info Packets=
 	This is how actions will be stored in the queue, as arrays.
@@ -31,7 +37,7 @@ global.lastDmgType = 0;
 	
 	Log Post: [0,"message"]
 	Die Roll: [1,sides,number,modifier,advantage]
-	Attack Check: [2,target,attacker]					(Done right after a die roll to contest AC)
+	Attack Check: [2,target,attacker,attacker's turn]	(Done right after a die roll to contest AC)
 	Damage Application: [3,target,type]					(Also done after a die roll, can only be created by an attack check.)
 	Resume Turn: [4,obj]								(Only added by the tokens themselves)
 */
@@ -40,14 +46,22 @@ function queueLog(msg) {
 	ds_queue_enqueue(global.aQueue,[0,msg]);
 }
 
-function queueDieRoll(sides,number,amod=0,adv=0) {
+function queueDieRoll(sides,number=1,amod=0,adv=0) {
 	ds_queue_enqueue(global.aQueue,[1,sides,number,amod,adv]);
 }
 
-function queueAttack(attacker,target) { //Keep in mind this uses token instance IDs as inputs!!!
+function queueAttack(attacker,target,attTurn=true) { //Keep in mind this uses token instance IDs as inputs!!!
 	queueLog(attacker.character.name+" attacks "+target.character.name+"!");
-	queueDieRoll(20,1,attacker.character.atk);
-	ds_queue_enqueue(global.aQueue,[2,target,attacker]);
+	
+	//Handle adventage and disadvantage
+	if (target.spAction = sa_dodge) {
+		queueLog(attacker.character.name+" is at a disadvantage!");
+		queueDieRoll(20,1,attacker.character.atk,dr_disadv);
+	} else {
+		queueDieRoll(20,1,attacker.character.atk);
+	}
+	
+	ds_queue_enqueue(global.aQueue,[2,target,attacker,attTurn]);
 }
 
 function queueDamage(target,die,number,amod,type) { //

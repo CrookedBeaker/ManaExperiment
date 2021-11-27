@@ -13,7 +13,7 @@ function TakeTurn() {
 	obj_ret.controlled = false;
 	obj_ret.hidden = false;
 	
-	spAction = 0;
+	spAction = sa_none;
 	
 	sub = instance_create_depth(obj_camera.x-112,obj_camera.y+112,-1,obj_menu_battle);
 	sub.par = id;
@@ -36,19 +36,19 @@ function Attack() {
 }
 
 function Dash() {
-	spAction = 1;
+	spAction = sa_dash;
 	queueLog(character.name+" dashes!");
 	action = false;
 }
 
 function Disengage() {
-	spAction = 2;
+	spAction = sa_disengage;
 	queueLog(character.name+" disengages!");
 	action = false;
 }
 
 function Dodge() {
-	spAction = 3;
+	spAction = sa_dodge;
 	queueLog(character.name+" takes evasive action!");
 	action = false;
 }
